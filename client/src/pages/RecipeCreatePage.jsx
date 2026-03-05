@@ -56,7 +56,14 @@ function RecipeCreatePage() {
   };
 
   const handleGenerateRecipeAI = async () => {
-    // route to call the server, and via some LLM, receive all the details of a new recipe. Then load that info into the state.
+    // function to call the server, and, via some LLM, receive all the details of a new recipe. Then load that info into the state.
+
+    if (!form.title) {
+      return // prevents call if no title and expects at least 3 character string.
+    }
+
+    // request logic here...
+    
   }
 
   return (
@@ -73,7 +80,7 @@ function RecipeCreatePage() {
               onChange={handleChange}
               required
             />
-            <button type="button" handleClick={handleGenerateRecipeAI}>Generate 🤖</button>
+            <button type="button" disabled={!form.title} onClick={handleGenerateRecipeAI}>Generate 🤖</button>
           </div>
         </div>
 
