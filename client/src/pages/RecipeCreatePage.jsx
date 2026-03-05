@@ -55,19 +55,26 @@ function RecipeCreatePage() {
     }
   };
 
+  const handleGenerateRecipeAI = async () => {
+    // route to call the server, and via some LLM, receive all the details of a new recipe. Then load that info into the state.
+  }
+
   return (
     <div>
       <h1>Create recipe</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title</label>
-          <input
-            type="text"
-            name="title"
-            value={form.title}
-            onChange={handleChange}
-            required
-          />
+        <div className="title-input-container">
+          <div>
+            <label>Title</label>
+            <input
+              type="text"
+              name="title"
+              value={form.title}
+              onChange={handleChange}
+              required
+            />
+            <button type="button" handleClick={handleGenerateRecipeAI}>Generate 🤖</button>
+          </div>
         </div>
 
         <div>
